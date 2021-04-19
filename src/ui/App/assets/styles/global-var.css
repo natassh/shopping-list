@@ -10,12 +10,11 @@
   --twitter-color: #00ACEE;
   --linkedin-color: #0E76A8;
   --github-color: #000;
-  --myweb-color: #ff8080;
+  --myweb-color: #c63e50;
 
-  --main-font: 'Kumbh Sans', sans-serif;
+  --main-font: 'Open Sans', sans-serif;
   --bold: 700;
   --semi-bold: 600;
-  --medium: 500;
   --regular: 400;
-  --font-size: 1rem;
+  --ligth: 300;
 }
