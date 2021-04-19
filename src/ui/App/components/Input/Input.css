@@ -1,0 +1,27 @@
+.AddTodoForm__Input {
+    display: block;
+    width: 70%;
+    height: 3rem;
+    font-family: var(--main-font);
+    font-weight: var(--medium);
+    color: var(--primary-color-text);
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 0 1px rgb(0 0 0 / 3%);
+    border-radius: 0.5rem;
+    padding: 0 1.5rem 0 1.5rem;
+    text-transform: capitalize;
+    &::placeholder {
+        color: var(--third-color-text);
+    }
+}
+@media screen and (max-width: 767px) {
+    .AddTodoForm__Input {
+        width: 100%;
+    }
+} 
+@media screen and (max-width: 375px) {
+    .AddTodoForm__Input {
+        font-size: 1.06rem;
+    }
+}

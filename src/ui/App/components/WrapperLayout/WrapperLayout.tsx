@@ -10,8 +10,6 @@ const WrapperLayout: React.FC<WrapperLayoutProps> = ({children}) => {
 }
 export {WrapperLayout};
 
-
-
 type WrapperLayoutProps = {
   className?: string,
   children: React.ReactNode

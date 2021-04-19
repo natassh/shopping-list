@@ -1,0 +1,25 @@
+.cw {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem 0 1rem;
+}
+@media screen and (max-width: 1199px) {
+  .cw {
+    width: 1024px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .cw {
+    width: 768px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .cw {
+    width: 425px
+  }
+}
+@media screen and (max-width: 424px) {
+  .cw {
+    width: 100%;
+  }
+}
