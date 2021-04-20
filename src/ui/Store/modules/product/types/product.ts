@@ -1,7 +1,7 @@
 export type Product = {
-    id?: number,
+    id: number,
     name: string,
     quantity: string,
-    price?: string,
-    isBought?: boolean
+    price: string,
+    isBought: boolean
 }
