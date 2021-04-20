@@ -1,7 +1,7 @@
 import React from 'react';
 import './Input.css';
 
-const Input: React.FC<InputProps> = ({ onChange, title, className, type, value, placeholder }) => {
+const Input: React.FC<InputProps> = ({ onChange, title, className, type, value, placeholder, id }) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement> ) => {
     const inputNewValue = e.target.value;
@@ -15,18 +15,20 @@ const Input: React.FC<InputProps> = ({ onChange, title, className, type, value, 
       type={type}
       placeholder={placeholder}
       value={value}
+      id= {id}
       onChange={handleChange}
     />
   );
 };
 
-export default Input;
+export {Input};
 
 
 type InputProps = {
   title: string,
   className: string,
   type: string,
+  id: string,
   value?: string,
   placeholder?: string,
   onChange: (value: string) => void
