@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { RootState } from '../../Store/rootReducers';
 import { useSelector, useDispatch } from 'react-redux';
 import {Product} from '../../Store/modules/product/types/product';
@@ -19,17 +19,29 @@ const ProductList: React.FC = () => {
   const [quantityProduct, setQuantityProduct] = useState<string>('');
   const [idCurrentProductInEdition, setIdCurrentProductInEdition] = useState<number>(0);
 
-  const handleOnChangeNameProduct = (name:string): void => {
-    setNameProduct(name);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const handleOnChangeNameProduct = (): void => {
+    if(nameRef && nameRef.current) {
+      setNameProduct(nameRef.current.value)
+    } 
   }
-  const handleOnChangePriceProduct = (price:string): void => {
-    setPriceProduct(price);
+  const priceRef = useRef<HTMLInputElement>(null);
+  const handleOnChangePriceProduct = (): void => {
+    if(priceRef && priceRef.current) {
+      setPriceProduct(priceRef.current.value)
+    } 
   }
+  const quantityRef = useRef<HTMLInputElement>(null);
+  const handleOnChangeQuantityProduct = (): void => {
+    if(quantityRef && quantityRef.current) {
+      setQuantityProduct(quantityRef.current.value)
+    } 
+  }
+  const isBoughtRef = useRef<HTMLInputElement>(null);
   const handleChangeIsBought = (): void => {
-    setIsBought(!isBought)
-  }
-  const handleOnChangeQuantityProduct = (quantity:string): void => {
-    setQuantityProduct(quantity)
+    if(isBoughtRef && isBoughtRef.current) {
+      setIsBought(!isBought)
+    } 
   }
 
   const handleDeleteProduct = (id: number) => {
@@ -71,42 +83,43 @@ const ProductList: React.FC = () => {
                     <form className='ProductEditForm' onSubmit={handleUpdateProduct}>
                       <fieldset>
                         <label htmlFor='nameProduct'>Editar nombre</label>
-                        <Input
-                          id='nameProduct'
-                          title='nameProduct'
+                        <input 
+                          id='nameProduct' 
+                          type="text" 
+                          ref={nameRef} 
                           onChange={handleOnChangeNameProduct} 
-                          className='ProductEditForm__Input'
-                          type='text'
-                          value={nameProduct}
+                          value={nameProduct} 
+                          className='ProductEditForm__Input' 
                         />
                       </fieldset>
                       <fieldset>
                         <label htmlFor='isBought'>Cantidad</label>
-                        <Input
-                          id='quantityProduct'
-                          title='quantityProduct'
+                        <input 
+                          id='quantityProduct' 
+                          type="text" 
+                          ref={quantityRef} 
                           onChange={handleOnChangeQuantityProduct} 
-                          className='ProductEditForm__Input'
-                          type='text'
-                          value={quantityProduct}
+                          value={quantityProduct} 
+                          className='ProductEditForm__Input' 
                         />
                       </fieldset>
                       <fieldset>
                         <label htmlFor='priceProduct'>Precio</label>
-                        <Input
-                          id='priceProduct'
-                          title='priceProduct'
+                        <input 
+                          id='priceProduct' 
+                          type="text" 
+                          ref={priceRef} 
                           onChange={handleOnChangePriceProduct} 
-                          className='ProductEditForm__Input'
-                          type='text'
-                          value={priceProduct}
+                          value={priceProduct} 
+                          className='ProductEditForm__Input' 
                         />
                       </fieldset>
                       <fieldset>
                         <label htmlFor='isBought'>Comprado</label>
                         <input
-                          type='checkbox'
                           id='isBought'
+                          type='checkbox'
+                          ref={isBoughtRef} 
                           checked={isBought}
                           onChange={handleChangeIsBought}
                         />
