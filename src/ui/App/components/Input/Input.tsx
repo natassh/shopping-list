@@ -1,7 +1,7 @@
 import React from 'react';
 import './Input.css';
 
-const Input: React.FC<InputProps> = ({ onChange, title, className, type, value, placeholder, id }) => {
+const Input: React.FC<InputProps> = ({ title, className, type, id, onChange, value, placeholder}) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement> ) => {
     const inputNewValue = e.target.value;
@@ -13,10 +13,10 @@ const Input: React.FC<InputProps> = ({ onChange, title, className, type, value, 
       title={title} 
       className={className} 
       type={type}
-      placeholder={placeholder}
-      value={value}
       id= {id}
       onChange={handleChange}
+      value={value}
+      placeholder={placeholder}
     />
   );
 };
@@ -29,7 +29,7 @@ type InputProps = {
   className: string,
   type: string,
   id: string,
+  onChange: (value: string) => void
   value?: string,
   placeholder?: string,
-  onChange: (value: string) => void
 }

@@ -73,6 +73,8 @@ const ProductList: React.FC = () => {
                 <div>
                   <p>{product.name}</p>
                   <p>{product.quantity}u.</p>
+                  <p>{product.price}</p>
+                  <p>{product.isBought ? "Comprado" : ""}</p>
                   <div className='actions'>
                     <button onClick={() => handleIsEditingProduct(product.id, product.name, product.quantity, product.price, product.isBought)}>Editar</button>
                     <button onClick={() => handleDeleteProduct(product.id)}>Eliminar</button>
@@ -85,6 +87,7 @@ const ProductList: React.FC = () => {
                         <label htmlFor='nameProduct'>Editar nombre</label>
                         <input 
                           id='nameProduct' 
+                          title='nameProduct' 
                           type="text" 
                           ref={nameRef} 
                           onChange={handleOnChangeNameProduct} 
@@ -96,6 +99,7 @@ const ProductList: React.FC = () => {
                         <label htmlFor='isBought'>Cantidad</label>
                         <input 
                           id='quantityProduct' 
+                          title='quantityProduct' 
                           type="text" 
                           ref={quantityRef} 
                           onChange={handleOnChangeQuantityProduct} 
@@ -107,6 +111,7 @@ const ProductList: React.FC = () => {
                         <label htmlFor='priceProduct'>Precio</label>
                         <input 
                           id='priceProduct' 
+                          title='priceProduct' 
                           type="text" 
                           ref={priceRef} 
                           onChange={handleOnChangePriceProduct} 
@@ -118,6 +123,7 @@ const ProductList: React.FC = () => {
                         <label htmlFor='isBought'>Comprado</label>
                         <input
                           id='isBought'
+                          title='isBought'
                           type='checkbox'
                           ref={isBoughtRef} 
                           checked={isBought}
