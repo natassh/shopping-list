@@ -1,4 +1,4 @@
-import React, { useState, /*useRef*/ } from 'react';
+import React, { useState } from 'react';
 import { RootState } from '../../Store/rootReducers';
 import { useSelector, useDispatch } from 'react-redux';
 import {Product} from '../../Store/modules/product/types/product';
@@ -9,25 +9,15 @@ import './ProductList.css';
 
 
 const ProductList: React.FC = () => {
-  // const nameRef = useRef();
-  // const [nameProduct, setNameProduct] = useState<string>('');
-  // const handleOnChangeNameProduct = (): void => {
-  //   setNameProduct(nameRef.current.value);
-  // }
+
   const dispatch = useDispatch();
   const products = useSelector( (state: RootState) => state.products);
  
   const [nameProduct, setNameProduct] = useState<string>('');
-  // console.log('nameProduct: ', nameProduct)
   const [priceProduct, setPriceProduct] = useState<string>('');
-  // console.log('priceProduct: ', priceProduct)
   const [isBought, setIsBought] = useState<boolean>(false);
-  // console.log('isBought: ', isBought)
   const [quantityProduct, setQuantityProduct] = useState<string>('');
-  // console.log('quantityProduct: ', quantityProduct)
   const [idCurrentProductInEdition, setIdCurrentProductInEdition] = useState<number>(0);
-  // console.log('idCurrentProductInEdition: ', idCurrentProductInEdition)
-
 
   const handleOnChangeNameProduct = (name:string): void => {
     setNameProduct(name);
@@ -46,8 +36,12 @@ const ProductList: React.FC = () => {
     dispatch(DeleteProduct(id))
   }
 
-  const handleIsEditingProduct = (id: number) => {
+  const handleIsEditingProduct = (id: number, name: string, quantity: string, price: string, isBought:boolean ) => {
       setIdCurrentProductInEdition(id);
+      setNameProduct(name);
+      setQuantityProduct(quantity);
+      setPriceProduct(price);
+      setIsBought(isBought);
   }
  
   const handleUpdateProduct = (event: React.SyntheticEvent): void => {
@@ -68,7 +62,7 @@ const ProductList: React.FC = () => {
                   <p>{product.name}</p>
                   <p>{product.quantity}u.</p>
                   <div className='actions'>
-                    <button onClick={() => handleIsEditingProduct(product.id)}>Editar</button>
+                    <button onClick={() => handleIsEditingProduct(product.id, product.name, product.quantity, product.price, product.isBought)}>Editar</button>
                     <button onClick={() => handleDeleteProduct(product.id)}>Eliminar</button>
                   </div>
                 </div>
@@ -77,7 +71,6 @@ const ProductList: React.FC = () => {
                     <form className='ProductEditForm' onSubmit={handleUpdateProduct}>
                       <fieldset>
                         <label htmlFor='nameProduct'>Editar nombre</label>
-                        {/* <input type="text" ref={nameRef} onChange={handleOnChangeNameProduct} /> */}
                         <Input
                           id='nameProduct'
                           title='nameProduct'
@@ -85,6 +78,17 @@ const ProductList: React.FC = () => {
                           className='ProductEditForm__Input'
                           type='text'
                           value={nameProduct}
+                        />
+                      </fieldset>
+                      <fieldset>
+                        <label htmlFor='isBought'>Cantidad</label>
+                        <Input
+                          id='quantityProduct'
+                          title='quantityProduct'
+                          onChange={handleOnChangeQuantityProduct} 
+                          className='ProductEditForm__Input'
+                          type='text'
+                          value={quantityProduct}
                         />
                       </fieldset>
                       <fieldset>
@@ -103,18 +107,8 @@ const ProductList: React.FC = () => {
                         <input
                           type='checkbox'
                           id='isBought'
+                          checked={isBought}
                           onChange={handleChangeIsBought}
-                        />
-                      </fieldset>
-                      <fieldset>
-                        <label htmlFor='isBought'>Cantidad</label>
-                        <Input
-                          id='quantityProduct'
-                          title='quantityProduct'
-                          onChange={handleOnChangeQuantityProduct} 
-                          className='ProductEditForm__Input'
-                          type='text'
-                          value={quantityProduct}
                         />
                       </fieldset>
                       <button>Guardar</button>
