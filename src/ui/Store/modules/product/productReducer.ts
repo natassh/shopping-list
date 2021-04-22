@@ -1,5 +1,5 @@
-import {ADD_PRODUCT, EDIT_PRODUCT, DELETE_PRODUCT} from './actionTypes';
-import {ProductActions, AddProductAction, DeleteProductAction, EditProductAction} from './types/actions';
+import {ADD_PRODUCT, DELETE_PRODUCT, UPDATE_PRODUCT} from './actionTypes';
+import {ProductActions, AddProductAction, DeleteProductAction, UpdateProductAction} from './types/actions';
 import {Product} from './types/product';
 import {getInitialState} from '../../../../core/products/utils/getInitialState';
 import {saveProductsInLocalStorage} from '../../../../core/products/utils/saveProductsInLocalStorage';
@@ -16,6 +16,13 @@ const setDeleteProduct = (state: Product[], action: DeleteProductAction): Produc
    saveProductsInLocalStorage(newProductsList);
    return newProductsList;
 }
+const setUpdateProduct = (state: Product[], action: UpdateProductAction): Product[] => {
+   const indexOfProductToEdit = state.findIndex(product => product.id === action.payload.id);
+   const productsList = [...state];
+   productsList[indexOfProductToEdit] = action.payload;
+   saveProductsInLocalStorage(productsList);
+   return productsList;
+}
 
 const productReducer = (state = initialtate , action: ProductActions): Product[] => {
    switch (action.type) {
@@ -23,10 +30,14 @@ const productReducer = (state = initialtate , action: ProductActions): Product[]
            return setAddProduct (state, action as AddProductAction);
          case DELETE_PRODUCT:
             return setDeleteProduct (state, action as DeleteProductAction);
+         case UPDATE_PRODUCT:
+            return setUpdateProduct (state, action as UpdateProductAction);
         default:
             return state;
    }
 }
 
 export {productReducer};
+
+
 

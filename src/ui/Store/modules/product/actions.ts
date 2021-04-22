@@ -1,6 +1,6 @@
-import {ADD_PRODUCT, EDIT_PRODUCT, DELETE_PRODUCT} from './actionTypes';
-import {AddProductAction, DeleteProductAction, EditProductAction} from './types/actions';
-import {getProductObject} from '../../../../core/products/utils/getProductObject';
+import {ADD_PRODUCT, UPDATE_PRODUCT, DELETE_PRODUCT} from './actionTypes';
+import {AddProductAction, DeleteProductAction, UpdateProductAction} from './types/actions';
+import {getProductObject, getProductToEditObject} from '../../../../core/products/utils/';
 
 export const AddProduct = (name: string, quantity: string): AddProductAction => {
     const productObject = getProductObject(name, quantity);
@@ -11,13 +11,18 @@ export const AddProduct = (name: string, quantity: string): AddProductAction => 
         }
     )
 }
-export const EditProduct = (id: number, name: string,  quantity: string, price: string, isBought: boolean): EditProductAction => ({
-    type: EDIT_PRODUCT,
-    payload: {id, name, quantity, price, isBought}
-});
 export const DeleteProduct = (id: number): DeleteProductAction => ({
     type: DELETE_PRODUCT,
     payload: id
 });
+export const UpdateProduct = (id: number, name: string,  quantity: string, price: string, isBought: boolean): UpdateProductAction => {
+    const productToEditObject = getProductToEditObject(id, name, quantity, price, isBought)
+    return (
+        {
+            type: UPDATE_PRODUCT,
+            payload: productToEditObject
+        }
+    )
+};
 
 

@@ -8,9 +8,9 @@ export type DeleteProductAction = {
     type: string,
     payload: number
 };
-export type EditProductAction = {
+export type UpdateProductAction = {
     type: string,
     payload: Product
 }
 
-export type ProductActions = AddProductAction | DeleteProductAction | EditProductAction;
+export type ProductActions = AddProductAction | DeleteProductAction | UpdateProductAction;

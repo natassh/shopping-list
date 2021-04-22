@@ -3,5 +3,5 @@ export type Product = {
     name: string,
     quantity: string,
     price: string,
-    isBought: boolean
+    isBought: boolean,
 }
