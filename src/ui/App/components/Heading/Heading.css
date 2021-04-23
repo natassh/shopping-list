@@ -19,10 +19,6 @@
     left: 0;
   }
 }
-h1, h2, h3, h4, h5, h6 {
-  margin:0;
-  padding: 0;
-}
 .second-title {
   font-family: var(--main-font);
   font-weight: var(--semi-bold);
@@ -40,6 +36,22 @@ h1, h2, h3, h4, h5, h6 {
     bottom: -10px;
     left: 0;
   }
+}
+h1, h2, h3, h4, h5, h6 {
+  margin:0;
+  padding: 0;
+}
+h3, h4 {
+  font-size: 1.3125rem;
+  font-family: var(--main-font);
+  font-weight: var(--medium);
+  color: var(--primary-color-text);
+}
+h5, h6 {
+  font-size: 1.3125rem;
+  font-family: var(--main-font);
+  font-weight: var(--light);
+  color: var(--primary-color-text);
 }
 @media screen and (max-width: 424px) {
   .main-title {

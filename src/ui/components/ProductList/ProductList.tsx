@@ -5,6 +5,7 @@ import {Product} from '../../Store/modules/product/types/product';
 import { DeleteProduct, UpdateProduct} from '../../Store/modules/product/actions'
 import {Heading} from '../../App/components/Heading';
 import './ProductList.css';
+import { TotalProducts } from '../TotalProducts';
 
 
 const ProductList: React.FC = () => {
@@ -66,7 +67,10 @@ const ProductList: React.FC = () => {
 
   return (
     <section>
-      <Heading tag='h2' className='second-title' >Productos en la cesta</Heading>
+      <div>
+        <Heading tag='h2' className='second-title' >Productos en la cesta</Heading>
+        <TotalProducts/>
+      </div>
       <ul className="ProductList">
         {
           products.map((product:Product) => {
@@ -74,7 +78,7 @@ const ProductList: React.FC = () => {
               <li key={product.id}>
                 <div>
                   <div>
-                    <p><span>Producto</span>{product.name}</p>
+                    <p><span>Producto</span>{product.name != "" ? product.name : "---"}</p>
                     <p><span>Cantidad</span>{product.quantity != "" ? product.quantity : "0"}u.</p>
                     <p><span>Precio</span>{product.price != "" ? product.price : "---"}</p>
                     <p className="isBought">{product.isBought ? "Comprado" : ""}</p>
