@@ -66,7 +66,7 @@ const ProductList: React.FC = () => {
   }
 
   return (
-    <section>
+    <section className="Products">
       <div>
         <Heading tag='h2' className='second-title' >Productos en la cesta</Heading>
         <TotalProducts/>

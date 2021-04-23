@@ -1,0 +1,25 @@
+.Products {
+    & > div:first-child {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        & div {
+            display: flex;
+            align-items: baseline;
+            & h4 {
+                margin-right: 1rem
+                
+            }
+            & strong {
+                font-family: var(--main-font);
+                font-weight: var(--regular);
+                color: var(--main-color);
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .Products > div:first-child {
+        flex-direction: column;
+    }
+  }
