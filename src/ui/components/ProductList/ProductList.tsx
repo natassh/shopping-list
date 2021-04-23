@@ -78,9 +78,9 @@ const ProductList: React.FC = () => {
               <li key={product.id}>
                 <div>
                   <div>
-                    <p><span>Producto</span>{product.name != "" ? product.name : "---"}</p>
-                    <p><span>Cantidad</span>{product.quantity != "" ? product.quantity : "0"}u.</p>
-                    <p><span>Precio</span>{product.price != "" ? product.price : "---"}</p>
+                    <p><span>Producto</span>{product.name !== "" ? product.name : "---"}</p>
+                    <p><span>Cantidad</span>{product.quantity !== "" ? product.quantity : "0"}u.</p>
+                    <p><span>Precio</span>{product.price !== "" ? product.price : "---"}</p>
                     <p className="isBought">{product.isBought ? "Comprado" : ""}</p>
                   </div>
                   <div className='actions'>
@@ -112,7 +112,7 @@ const ProductList: React.FC = () => {
                           ref={quantityRef} 
                           onChange={handleOnChangeQuantityProduct} 
                           // value={quantityProduct} 
-                          value={quantityProduct != "" ? quantityProduct : "0"}
+                          value={quantityProduct !== "" ? quantityProduct : "0"}
                           className='FormInput quantityProduct' 
                         />
                       </fieldset>
