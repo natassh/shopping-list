@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { RootState } from '../../Store/rootReducers';
 import { useSelector, useDispatch } from 'react-redux';
-import {Product} from '../../Store/modules/product/types/product';
 import { DeleteProduct, UpdateProduct} from '../../Store/modules/product/actions'
+import {Product} from '../../Store/modules/product/types/product';
+import { TotalProducts } from '../TotalProducts';
 import {Heading} from '../../App/components/Heading';
 import './ProductList.css';
-import { TotalProducts } from '../TotalProducts';
 
 
 const ProductList: React.FC = () => {
