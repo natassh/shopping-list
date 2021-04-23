@@ -60,6 +60,9 @@ const ProductList: React.FC = () => {
     dispatch(UpdateProduct(idCurrentProductInEdition, nameProduct, quantityProduct, priceProduct, isBought));
     setIdCurrentProductInEdition(0);
   }
+  if (products.length <= 0) {
+    return null
+  }
 
   return (
     <section>
@@ -72,9 +75,9 @@ const ProductList: React.FC = () => {
                 <div>
                   <div>
                     <p><span>Producto</span>{product.name}</p>
-                    <p><span>Cantidad</span>{product.quantity}u.</p>
-                    <p><span>Precio</span>{product.price}</p>
-                    <p className="isBought">{product.isBought ? "" : "Comprado"}</p>
+                    <p><span>Cantidad</span>{product.quantity != "" ? product.quantity : "0"}u.</p>
+                    <p><span>Precio</span>{product.price != "" ? product.price : "---"}</p>
+                    <p className="isBought">{product.isBought ? "Comprado" : ""}</p>
                   </div>
                   <div className='actions'>
                     <button onClick={() => handleIsEditingProduct(product.id, product.name, product.quantity, product.price, product.isBought)}>Editar</button>
@@ -104,7 +107,8 @@ const ProductList: React.FC = () => {
                           type="text" 
                           ref={quantityRef} 
                           onChange={handleOnChangeQuantityProduct} 
-                          value={quantityProduct} 
+                          // value={quantityProduct} 
+                          value={quantityProduct != "" ? quantityProduct : "0"}
                           className='FormInput quantityProduct' 
                         />
                       </fieldset>

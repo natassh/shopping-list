@@ -19,6 +19,8 @@ const AddProductForm: React.FC = () => {
   const handleOnSubmitPruduct = (event: React.SyntheticEvent) => {
     event.preventDefault();
     dispatch(AddProduct(nameProduct, quantityProduct));
+    setProductName('');
+    setQuantityProduct('');
   }
 
   return (

@@ -82,7 +82,7 @@ button {
 }
 .isBoughtControl::after {
   display: block;
-  content: "✅";
+  content: "❌";
   width: 2rem;
   height: 2rem;
   font-size: 2rem;
@@ -92,7 +92,7 @@ button {
 }
 
 #isBought:checked ~ .isBoughtControl::after {
-  content: "❌";
+  content: "✅";
 }
 input#isBought {
   width: 7rem;
