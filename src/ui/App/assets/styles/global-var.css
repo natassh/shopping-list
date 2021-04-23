@@ -1,20 +1,22 @@
 :root {
-  --bg: #F2F2F2;
-  --main-color: #037169;
-  --second-color: #A4D96D;
+  --bg: #E0E0E0;
+  --main-color: #F5007E;
+  --second-color: #F84DA6;
+  --third-color: #F966B2;
+  --grey-color: #FAF8F9;
   --white-color: #fff;
-  --primary-color-text: #303333;
-  --second-color-text: #585B5B;
-  --third-color-text: #C7C7C7;
+  --primary-color-text: #27153E;
 
   --twitter-color: #00ACEE;
   --linkedin-color: #0E76A8;
   --github-color: #000;
   --myweb-color: #c63e50;
 
-  --main-font: 'Open Sans', sans-serif;
+  --main-font: 'Poppins', sans-serif;
+  --text-font: 'Hind', sans-serif;
   --bold: 700;
   --semi-bold: 600;
+  --medium: 500;
   --regular: 400;
   --ligth: 300;
 }

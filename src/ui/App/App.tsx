@@ -10,7 +10,9 @@ function App() {
   return (
     <div className="App">
         <WrapperLayout>
-          <Heading tag="h1" className="main-title" >Lista de la compra</Heading>
+          <header>
+            <Heading tag="h1" className="main-title" >Lista de la compra</Heading>
+          </header>
           <AddProductForm/>
           <ProductList/>
         </WrapperLayout>

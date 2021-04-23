@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux';
 import {AddProduct} from '../../Store/modules/product/actions';
 import {Heading} from '../../App/components/Heading';
 import {Input} from '../../App/components/Input';
+import './AddProductForm.css';
 
 const AddProductForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const AddProductForm: React.FC = () => {
               id='nameProduct'
               title='nameProduct'
               onChange={handleOnChangeNameProduct} 
-              className='AddProductForm__Input'
+              className='FormInput'
               type='text'
               value={nameProduct}
               placeholder = 'Introduce el nombre de producto'
@@ -42,7 +43,7 @@ const AddProductForm: React.FC = () => {
               id='quantityProduct'
               title='quantityProduct'
               onChange={handleOnChangeQuantityProduct} 
-              className='AddProductForm__Input'
+              className='FormInput quantityProduct'
               type='text'
               value={quantityProduct}
               placeholder = '1'

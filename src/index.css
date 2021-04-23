@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;700&family=Poppins:wght@300;500;600;700&display=swap');
 @import './ui/App/assets/styles/global-var.css';
 
 * {
@@ -10,8 +10,7 @@ html, body {
   padding: 0;
 }
 body {
-  font-family: var(--main-font);
-  font-size: var(--font-size);
+  font-family: var(--text-font);
   font-weight: var(--regular);
-  background-color: var(--bg);
+  background-color: var(--white-color);
 }

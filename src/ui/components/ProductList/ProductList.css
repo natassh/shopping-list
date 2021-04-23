@@ -1,0 +1,73 @@
+.ProductList {
+    margin: 0;
+    padding: 0;
+    & li {
+        list-style: none;
+        border-bottom: 1px solid var(--bg);
+        padding: 1rem 0 3rem 0;
+        & p {
+            margin-right: 3rem;
+            display:flex;
+            flex-direction: column;
+            font-family: var(--text-font);
+            font-weight: var(--regular);
+            color: var(--primary-color-text);
+            font-size: 1.3rem;
+            & span {
+                font-family: var(--text-font);
+                font-weight: var(--regular);
+                color: #C4C4C4;
+                font-size: 1rem;
+            }
+        }
+       
+        & > div:first-child div{
+            display: flex;
+            & p {
+                
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+            & .isBought {
+                color: var(--third-color);
+                font-family: var(--text-font);
+                font-weight: var(--regular);
+                font-size: 1rem;
+                position: relative;
+    top: 5px;
+            }
+        }
+    }
+}
+.actions {
+    & button {
+        margin-right: 1.5rem;
+        &::last-child {
+            margin-right: 0;
+        }
+    }
+}
+.ProductEditForm {
+    padding: 2rem;
+    margin-top: 2rem;
+    border: 2px solid var(--bg);
+}
+@media screen and (max-width: 424px) {
+    .ProductList li p {
+        margin-right: 1.8rem;
+    }
+    .ProductList li > div:first-child div {
+        flex-direction: column;
+    }
+    .ProductList li p {
+        margin-bottom: 0;
+    }
+    .ProductList li > div:first-child div p:last-child {
+        margin-bottom: 1rem;
+    }
+    .actions button {
+        margin-bottom: 1rem;
+    }
+}
+
