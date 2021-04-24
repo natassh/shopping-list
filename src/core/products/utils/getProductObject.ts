@@ -5,7 +5,7 @@ const getProductObject = (name: string, quantity: string): Product => {
     id: new Date().getTime(),
     name: name,
     quantity: quantity,
-    price: "",
+    price: "0",
     isBought: false
  }
  return productObject;
