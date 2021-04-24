@@ -10,7 +10,7 @@ describe('getProductObject', () => {
             id: new Date().getTime(),
             name: "Leche",
             quantity: "7",
-            price: "",
+            price: "0",
             isBought: false
         }
 
