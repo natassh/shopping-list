@@ -1,7 +1,7 @@
 import {ProductList} from '../ProductList';
 import  * as useSelector from 'react-redux';
 import  * as useDispatch from 'react-redux';
-import { render, screen, debug } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {products} from '../../../../core/products/fixtures/productsData';
 
