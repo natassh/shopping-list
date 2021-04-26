@@ -2,7 +2,7 @@ const product1 = {
     id: 1,
     name: 'Leche',
     quantity: '3',
-    price: '2',
+    price: '8',
     isBought: false,
 }
 const product2 = {

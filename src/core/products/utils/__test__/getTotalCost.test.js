@@ -7,7 +7,7 @@ describe('getTotalCost', () => {
         const totalCost = getTotalCost(products);
 
         // Assert
-        expect(totalCost).toEqual(7)
+        expect(totalCost).toEqual(13)
     })
     it('should return zero if there are no products' , () => {
         // Arrange
