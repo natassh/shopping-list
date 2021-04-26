@@ -1,7 +1,10 @@
 import {Product} from '../../../ui/Store/modules/product/types/product';
 
-const getTotalCost = (products: Product[]): any => {
-    const totalCost = products.reduce((total, amount) => total + parseFloat(amount.price),0)
+const getTotalCost = (products: Product[]): number => {
+    const totalCost = products.reduce( (acc, product) => {
+        return acc + parseFloat(product.price);
+    }, 0)
+    
     return totalCost;
 }
 
