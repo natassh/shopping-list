@@ -3,13 +3,22 @@ import {ProductActions, AddProductAction, DeleteProductAction, UpdateProductActi
 import {Product} from './types/product';
 import {getInitialState} from '../../../../core/products/utils/getInitialState';
 import {saveProductsInLocalStorage} from '../../../../core/products/utils/saveProductsInLocalStorage';
+import { ProductList } from '../../../components/ProductList';
 
 const initialtate: Product[]= getInitialState();
 
 const setAddProduct = (state: Product[], action: AddProductAction): Product[] => {
-    const newProductsList = [...state, action.payload];
-    saveProductsInLocalStorage(newProductsList);
-    return newProductsList;
+   const indexProductFound = state.findIndex(product => product.name.toLowerCase() === action.payload.name.toLowerCase());
+   console.log('indexProductFound: ', indexProductFound)
+   if(indexProductFound !== -1) {
+      const productsList = [...state];
+      productsList[indexProductFound]['quantity'] = action.payload.quantity;
+      saveProductsInLocalStorage(productsList);
+      return productsList;
+   }
+   const newProductsList = [...state, action.payload];
+   saveProductsInLocalStorage(newProductsList);
+   return newProductsList;
 }
 const setDeleteProduct = (state: Product[], action: DeleteProductAction): Product[] => {
    const newProductsList = state.filter(product => product.id !== action.payload);
