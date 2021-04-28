@@ -21,9 +21,6 @@ Tests done with JEST and Testing Library.
 
 ### `npm run e2e:open`
 
-Tests done with Cypress.
-### `npm run build`
-
 ### Thanks
 
 👩‍💻 con ❤️ por [Natacha](https://www.linkedin.com/in/natacha-ivannikova-261478113/) 😊
