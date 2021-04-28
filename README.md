@@ -19,7 +19,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Tests done with JEST and Testing Library.
 
-### `npm run e2e:open`
+### `npm run build`
 
 ### Thanks
 
