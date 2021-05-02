@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
             <ExternalLink
               className="myweb"
               href="https://www.natachaivannikova.com/"
-              text="Personal web"
+              text="Personal web2"
             />
           </li>
         </ul>
